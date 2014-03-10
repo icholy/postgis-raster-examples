@@ -74,4 +74,32 @@ FROM
 upperleftx | upperlefty | width | height | scalex | scaley | skewx | skewy | srid | numbands
 -----------|------------|-------|--------|--------|--------|-------|-------|------|----------
  0 | 0 | 3 | 3 | 1 | -1 | 0 | 0 | 0 | 1
+ 
+ 
+
+``` sql
+SELECT x, y, val
+FROM
+  ST_PixelAsPolygons(
+    ST_AddBand(
+      ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0), -- the raster
+      '4BUI'::text,                                   -- pixel type (http://postgis.net/docs/RT_ST_BandPixelType.html)
+      5,                                              -- initial value
+      NULL                                            -- nodata value (could be 0)
+    )
+  )
+```
+
+ x | y | val
+---|---|-----
+1 | 1 | 5
+1 | 2 | 5
+1 | 3 | 5
+2 | 1 | 5
+2 | 2 | 5
+2 | 3 | 5
+3 | 1 | 5
+3 | 2 | 5
+3 | 3 | 5
+
 
