@@ -44,7 +44,8 @@ FROM
  3 | 1 | POLYGON((2 0,3 0,3 -1,2 -1,2 0))
  3 | 2 | POLYGON((2 -1,3 -1,3 -2,2 -2,2 -1))
  3 | 3 | POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2)) 
- 
+
+* [ST_AddBand](http://postgis.net/docs/RT_ST_AddBand.html)
  
 ``` sql
 SELECT *
@@ -58,4 +59,8 @@ FROM
     )
   )
 ```
+
+upperleftx | upperlefty | width | height | scalex | scaley | skewx | skewy | srid | numbands
+-----------|------------|-------|--------|--------|--------|-------|-------|------|----------
+ 0 | 0 | 3 | 3 | 1 | -1 | 0 | 0 | 0 | 1
 
