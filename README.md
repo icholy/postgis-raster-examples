@@ -57,16 +57,28 @@ FROM
  3 | 3 | POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2)) 
 
 * [ST_AddBand](http://postgis.net/docs/RT_ST_AddBand.html)
+
+``` sql
+SELECT ST_AddBand(
+  ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0), -- the raster
+  '4BUI'::text,                                   -- pixel type (http://postgis.net/docs/RT_ST_BandPixelType.html)
+  5,                                              -- initial value
+  NULL                                            -- nodata value (could be 0)
+)
+```
+
+| st_addband |
+|------------|
+| 0100000100000000000000F03F000000000000F0BF000000000000000000000000000000000000000000000000000000000000000000000000030003000200050505050505050505 |
+
  
 ``` sql
 SELECT *
 FROM
   ST_MetaData(
     ST_AddBand(
-      ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0), -- the raster
-      '4BUI'::text,                                   -- pixel type (http://postgis.net/docs/RT_ST_BandPixelType.html)
-      0,                                              -- initial value
-      NULL                                            -- nodata value (could be 0)
+      ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0),
+      '4BUI'::text, 5, NULL
     )
   )
 ```
@@ -82,10 +94,8 @@ SELECT x, y, val
 FROM
   ST_PixelAsPolygons(
     ST_AddBand(
-      ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0), -- the raster
-      '4BUI'::text,                                   -- pixel type (http://postgis.net/docs/RT_ST_BandPixelType.html)
-      5,                                              -- initial value
-      NULL                                            -- nodata value (could be 0)
+      ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0),
+      '4BUI'::text, 5, NULL
     )
   )
 ```
