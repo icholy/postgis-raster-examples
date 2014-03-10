@@ -1,4 +1,4 @@
-postgis-raster-examples
+Postgis Raster Examples
 =======================
 
 [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
