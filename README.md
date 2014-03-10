@@ -29,13 +29,7 @@ upperleftx | upperlefty | width | height | scalex | scaley | skewx | skewy | sri
 SELECT x, y, ST_AsEWKT(geom)
 FROM
   ST_PixelAsPolygons(
-    ST_MakeEmptyRaster(
-      3, 3,  -- width, height
-      0, 0,  -- origin (top-left corner)
-      1, -1, -- scalex, scaley (pixel size, negative pixel size?)
-      0, 0,  -- skewx, skewy
-      0      -- srid coordinate system (0 = None)
-    )
+    ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0)
   )
 ```
 
