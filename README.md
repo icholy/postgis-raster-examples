@@ -1,8 +1,10 @@
 Postgis Raster Examples
 =======================
 
-* [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
 
+## Create Raster
+
+* [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
 
 ``` sql
 SELECT ST_MakeEmptyRaster(
@@ -55,6 +57,8 @@ FROM
  3 | 1 | POLYGON((2 0,3 0,3 -1,2 -1,2 0))
  3 | 2 | POLYGON((2 -1,3 -1,3 -2,2 -2,2 -1))
  3 | 3 | POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2)) 
+
+## Add Band to Raster
 
 * [ST_AddBand](http://postgis.net/docs/RT_ST_AddBand.html)
 * [Don't know what a band is?](http://edndoc.esri.com/arcsde/9.2/concepts/rasters/entities/rasterbands.htm)
