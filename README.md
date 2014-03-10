@@ -22,26 +22,29 @@ upperleftx | upperlefty | width | height | scalex | scaley | skewx | skewy | sri
 
 
 ``` sql
-"POLYGON((0 0,1 0,1 -1,0 -1,0 0))";1;1
-"POLYGON((0 -1,1 -1,1 -2,0 -2,0 -1))";1;2
-"POLYGON((0 -2,1 -2,1 -3,0 -3,0 -2))";1;3
-"POLYGON((1 0,2 0,2 -1,1 -1,1 0))";2;1
-"POLYGON((1 -1,2 -1,2 -2,1 -2,1 -1))";2;2
-"POLYGON((1 -2,2 -2,2 -3,1 -3,1 -2))";2;3
-"POLYGON((2 0,3 0,3 -1,2 -1,2 0))";3;1
-"POLYGON((2 -1,3 -1,3 -2,2 -2,2 -1))";3;2
-"POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2))";3;3
+SELECT ST_AsEWKT(geom), x, y
+FROM
+  ST_PixelAsPolygons(
+    ST_MakeEmptyRaster(
+      3, 3,  -- width, height
+      0, 0,  -- origin (top-left corner)
+      1, -1, -- pixel size, negative pixel size?
+      0, 0,  -- skewx, skewy ... :/ ?
+      0      -- srid coordinate system (0 = None)
+    )
+  )
+
 ```
 
 st_askewkt | x | y
 -----------|---|----
-"POLYGON((0 0,1 0,1 -1,0 -1,0 0))" | 1 | 1
-"POLYGON((0 -1,1 -1,1 -2,0 -2,0 -1))" | 1 | 2
-"POLYGON((0 -2,1 -2,1 -3,0 -3,0 -2))" | 1 | 3
-"POLYGON((1 0,2 0,2 -1,1 -1,1 0))" | 2 | 1
-"POLYGON((1 -1,2 -1,2 -2,1 -2,1 -1))" | 2 | 2
-"POLYGON((1 -2,2 -2,2 -3,1 -3,1 -2))" | 2 | 3
-"POLYGON((2 0,3 0,3 -1,2 -1,2 0))" | 3 | 1
-"POLYGON((2 -1,3 -1,3 -2,2 -2,2 -1))" | 3 | 2
-"POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2))" | 3 | 3
+POLYGON((0 0,1 0,1 -1,0 -1,0 0)) | 1 | 1
+POLYGON((0 -1,1 -1,1 -2,0 -2,0 -1)) | 1 | 2
+POLYGON((0 -2,1 -2,1 -3,0 -3,0 -2)) | 1 | 3
+POLYGON((1 0,2 0,2 -1,1 -1,1 0)) | 2 | 1
+POLYGON((1 -1,2 -1,2 -2,1 -2,1 -1)) | 2 | 2
+POLYGON((1 -2,2 -2,2 -3,1 -3,1 -2)) | 2 | 3
+POLYGON((2 0,3 0,3 -1,2 -1,2 0)) | 3 | 1
+POLYGON((2 -1,3 -1,3 -2,2 -2,2 -1)) | 3 | 2
+POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2)) | 3 | 3
 
