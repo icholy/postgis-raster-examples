@@ -2,6 +2,7 @@ postgis-raster-examples
 =======================
 
 [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
+
 ``` sql
 SELECT * FROM
   ST_MetaData(
@@ -14,3 +15,7 @@ SELECT * FROM
     )
   )
 ```
+
+upperleftx | upperlefty | width | height | scalex | scaley | skewx | skewy | srid | numbands
+-----------|------------|-------|--------|--------|--------|-------|-------|------|----------
+0 | 0 | 3 | 3 | 1 | -1 | 0 | 0 | 0 | 0
