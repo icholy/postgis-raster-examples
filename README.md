@@ -1,7 +1,9 @@
 Postgis Raster Examples
 =======================
 
-[ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
+* [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
+* [ST_MetaData](http://postgis.net/docs/RT_ST_MetaData.html)
+
 
 ``` sql
 SELECT * FROM
@@ -21,6 +23,8 @@ upperleftx | upperlefty | width | height | scalex | scaley | skewx | skewy | sri
 0 | 0 | 3 | 3 | 1 | -1 | 0 | 0 | 0 | 0
 
 
+* [ST_PixelAsPolygons](http://postgis.net/docs/RT_ST_PixelAsPolygons.html)
+
 ``` sql
 SELECT x, y, ST_AsEWKT(geom)
 FROM
@@ -28,8 +32,8 @@ FROM
     ST_MakeEmptyRaster(
       3, 3,  -- width, height
       0, 0,  -- origin (top-left corner)
-      1, -1, -- pixel size, negative pixel size?
-      0, 0,  -- skewx, skewy ... :/ ?
+      1, -1, -- scalex, scaley (pixel size, negative pixel size?)
+      0, 0,  -- skewx, skewy
       0      -- srid coordinate system (0 = None)
     )
   )
