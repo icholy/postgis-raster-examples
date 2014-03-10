@@ -1,6 +1,8 @@
 postgis-raster-examples
 =======================
 
+[ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
+
 ``` sql
 SELECT * FROM
   ST_MetaData(
