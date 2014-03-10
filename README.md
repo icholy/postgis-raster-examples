@@ -57,6 +57,7 @@ FROM
  3 | 3 | POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2)) 
 
 * [ST_AddBand](http://postgis.net/docs/RT_ST_AddBand.html)
+* [Don't know what a band is?](http://edndoc.esri.com/arcsde/9.2/concepts/rasters/entities/rasterbands.htm)
 
 ``` sql
 SELECT ST_AddBand(
