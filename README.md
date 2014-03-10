@@ -2,6 +2,23 @@ Postgis Raster Examples
 =======================
 
 * [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
+
+
+`` sql
+SELECT ST_MakeEmptyRaster(
+  3, 3,  -- width, height
+  0, 0,  -- origin (top-left corner)
+  1, -1, -- scalex, scaley (pixel size, negative pixel size?)
+  0, 0,  -- skewx, skewy
+  0      -- srid coordinate system (0 = None)
+)
+```
+
+| st_makeemptyraster |
+| -------------------|
+| 0100000000000000000000F03F000000000000F0BF00000000000000000000000000000000000000000000000000000000000000000000000003000300 |
+
+
 * [ST_MetaData](http://postgis.net/docs/RT_ST_MetaData.html)
 
 
