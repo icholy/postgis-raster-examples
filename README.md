@@ -44,4 +44,18 @@ FROM
  3 | 1 | POLYGON((2 0,3 0,3 -1,2 -1,2 0))
  3 | 2 | POLYGON((2 -1,3 -1,3 -2,2 -2,2 -1))
  3 | 3 | POLYGON((2 -2,3 -2,3 -3,2 -3,2 -2)) 
+ 
+ 
+``` sql
+SELECT *
+FROM
+  ST_MetaData(
+    ST_AddBand(
+      ST_MakeEmptyRaster(3, 3, 0, 0, 1, -1, 0, 0, 0), -- the raster
+      '4BUI'::text,                                   -- pixel type (http://postgis.net/docs/RT_ST_BandPixelType.html)
+      0,                                              -- initial value
+      NULL                                            -- nodata value (could be 0)
+    )
+  )
+```
 
