@@ -4,7 +4,7 @@ Postgis Raster Examples
 * [ST_MakeEmptyRaster](http://postgis.net/docs/RT_ST_MakeEmptyRaster.html)
 
 
-`` sql
+``` sql
 SELECT ST_MakeEmptyRaster(
   3, 3,  -- width, height
   0, 0,  -- origin (top-left corner)
